@@ -1,8 +1,24 @@
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate, useParams } from 'react-router-dom';
 import './App.css';
+import { FC } from 'react';
 
-function App() {
-  const cards = [
+interface Card {
+  id: number;
+  image: string;
+  title: string;
+  description: string;
+}
+
+interface HomeProps {
+  cards: Card[];
+}
+
+interface DetailsProps {
+  cards: Card[];
+}
+
+const App: FC = () => {
+  const cards: Card[] = [
     {
       id: 1,
       image: 'https://via.placeholder.com/150',
@@ -31,16 +47,16 @@ function App() {
       </Routes>
     </Router>
   );
-}
+};
 
-function Home({ cards }) {
+const Home: FC<HomeProps> = ({ cards }) => {
   const navigate = useNavigate();
 
   return (
     <main>
       <h1>Art Gallery</h1>
       <div className="card-container">
-        {cards.map((card) => (
+        {cards.map((card: Card) => (
           <div className="card" key={card.id}>
             <img src={card.image} alt={card.title} className="card-image" />
             <h2 className="card-title">{card.title}</h2>
@@ -53,11 +69,11 @@ function Home({ cards }) {
       </div>
     </main>
   );
-}
+};
 
-function Details({ cards }) {
-  const { id } = useNavigate().params;
-  const card = cards.find((c) => c.id === parseInt(id));
+const Details: FC<DetailsProps> = ({ cards }) => {
+  const { id } = useParams<{ id: string }>();
+  const card = cards.find((c) => c.id === parseInt(id ?? '', 10));
 
   if (!card) {
     return <h2>Artwork not found</h2>;
@@ -71,7 +87,7 @@ function Details({ cards }) {
       <button onClick={() => window.history.back()} className="card-button">Go Back</button>
     </main>
   );
-}
+};
 
 export default App;
 
