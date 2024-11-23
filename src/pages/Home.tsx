@@ -18,6 +18,9 @@ const Home: FC<HomeProps> = ({ cards }) => {
   return (
     <main>
       <h1>Art Gallery</h1>
+      <button onClick={() => navigate('/contact')} className="navigation-button">
+        Contact Us
+      </button>
       <div className="card-container">
         {cards.map((card: Card) => (
           <div className="card" key={card.id}>
