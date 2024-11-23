@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import './App.css';
 
 function App() {
@@ -23,22 +24,52 @@ function App() {
   ];
 
   return (
-    <>
-      {/* Main Content */}
-      <main>
-        <h1>Art Gallery</h1>
-        <div className="card-container">
-          {cards.map((card) => (
-            <div className="card" key={card.id}>
-              <img src={card.image} alt={card.title} className="card-image" />
-              <h2 className="card-title">{card.title}</h2>
-              <p className="card-description">{card.description}</p>
-              <button className="card-button">View More Details</button>
-            </div>
-          ))}
-        </div>
-      </main>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home cards={cards} />} />
+        <Route path="/details/:id" element={<Details cards={cards} />} />
+      </Routes>
+    </Router>
+  );
+}
+
+function Home({ cards }) {
+  const navigate = useNavigate();
+
+  return (
+    <main>
+      <h1>Art Gallery</h1>
+      <div className="card-container">
+        {cards.map((card) => (
+          <div className="card" key={card.id}>
+            <img src={card.image} alt={card.title} className="card-image" />
+            <h2 className="card-title">{card.title}</h2>
+            <p className="card-description">{card.description}</p>
+            <button className="card-button" onClick={() => navigate(`/details/${card.id}`)}>
+              View More Details
+            </button>
+          </div>
+        ))}
+      </div>
+    </main>
+  );
+}
+
+function Details({ cards }) {
+  const { id } = useNavigate().params;
+  const card = cards.find((c) => c.id === parseInt(id));
+
+  if (!card) {
+    return <h2>Artwork not found</h2>;
+  }
+
+  return (
+    <main>
+      <h1>{card.title}</h1>
+      <img src={card.image} alt={card.title} className="card-image" />
+      <p>{card.description}</p>
+      <button onClick={() => window.history.back()} className="card-button">Go Back</button>
+    </main>
   );
 }
 
