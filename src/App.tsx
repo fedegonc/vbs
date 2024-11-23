@@ -3,6 +3,7 @@ import './App.css';
 import { FC } from 'react';
 import Home from './pages/Home';
 import Details from './pages/Details';
+import Contact from './pages/Contact'; // Importa la página de contacto
 
 interface Card {
   id: number;
@@ -38,6 +39,7 @@ const App: FC = () => {
       <Routes>
         <Route path="/" element={<Home cards={cards} />} />
         <Route path="/details/:id" element={<Details cards={cards} />} />
+        <Route path="/contact" element={<Contact />} /> {/* Nueva ruta */}
       </Routes>
     </Router>
   );
