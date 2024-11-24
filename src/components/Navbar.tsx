@@ -15,6 +15,9 @@ const Navbar: FC = () => {
         <li className="navbar-item">
           <Link to="/contact" className="navbar-link">Contacto</Link>
         </li>
+        <li className="navbar-item">
+  <Link to="/services" className="navbar-link">Servicios</Link>
+</li>
       </ul>
     </nav>
   );
