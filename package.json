@@ -13,9 +13,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.0.0",
-    "@mui/material": "^5.13.0",  // Material UI core
-    "@emotion/react": "^11.10.5",  // Emotion para estilizado
-    "@emotion/styled": "^11.10.5"  // Styled components para Material UI
+    
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
