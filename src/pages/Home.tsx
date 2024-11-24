@@ -18,9 +18,14 @@ const Home: FC<HomeProps> = ({ cards }) => {
   return (
     <main>
       <h1>Galería de Arte</h1>
-      <button onClick={() => navigate('/contact')} className="navigation-button">
-        Contáctanos
-      </button>
+      <div className="button-container">
+        <button onClick={() => navigate('/contact')} className="navigation-button">
+          Contáctanos
+        </button>
+        <button onClick={() => navigate('/project')} className="navigation-button">
+          Proyecto
+        </button>
+      </div>
       <div className="card-container">
         {cards.map((card: Card) => (
           <div className="card" key={card.id}>
