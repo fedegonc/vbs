@@ -13,19 +13,21 @@ import theme from './theme';
 
 const App: FC = () => {
   return (
-    <Router>
-      <header className="header">
-        <Logo />
-        <Navbar />
-      </header>
-      <Routes>
-        <Route path="/" element={<Home cards={cards} />} />
-        <Route path="/details/:id" element={<Details cards={cards} />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/project" element={<Project />} />
-        <Route path="/services" element={<Services />} /> {/* Nueva ruta para Servicios */}
-      </Routes>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <header className="header">
+          <Logo />
+          <Navbar />
+        </header>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/details/:id" element={<Details />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/project" element={<Project />} />
+          <Route path="/services" element={<Services />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 };
 
