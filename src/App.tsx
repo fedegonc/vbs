@@ -9,6 +9,7 @@ import Services from './pages/Services'; // Importar la página de Servicios
 import Navbar from './components/Navbar';
 import Logo from './components/Logo';
 import { cards } from './assets/cardsData'; // Importa las tarjetas desde cardsData
+import theme from './theme';
 
 const App: FC = () => {
   return (
