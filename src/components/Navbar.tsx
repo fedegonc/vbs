@@ -1,25 +1,27 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import './Navbar.css'; // Puedes definir estilos para tu barra de navegación
+import { AppBar, Toolbar, Button, Box } from '@mui/material';
 
 const Navbar: FC = () => {
   return (
-    <nav className="navbar">
-      <ul className="navbar-list">
-        <li className="navbar-item">
-          <Link to="/" className="navbar-link">Home</Link>
-        </li>
-        <li className="navbar-item">
-          <Link to="/project" className="navbar-link">Proyecto</Link>
-        </li>
-        <li className="navbar-item">
-          <Link to="/contact" className="navbar-link">Contacto</Link>
-        </li>
-        <li className="navbar-item">
-  <Link to="/services" className="navbar-link">Servicios</Link>
-</li>
-      </ul>
-    </nav>
+    <AppBar position="static">
+      <Toolbar>
+        <Box sx={{ flexGrow: 1, display: 'flex', gap: 2 }}>
+          <Button color="inherit" component={Link} to="/">
+            Home
+          </Button>
+          <Button color="inherit" component={Link} to="/project">
+            Proyecto
+          </Button>
+          <Button color="inherit" component={Link} to="/contact">
+            Contacto
+          </Button>
+          <Button color="inherit" component={Link} to="/services">
+            Servicios
+          </Button>
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
 };
 
