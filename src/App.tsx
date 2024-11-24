@@ -5,40 +5,17 @@ import Home from './pages/Home';
 import Details from './pages/Details';
 import Contact from './pages/Contact';
 import Project from './pages/Project';
-import Navbar from './components/Navbar'; // Importar el componente Navbar
-
-interface Card {
-  id: number;
-  image: string;
-  title: string;
-  description: string;
-}
+import Navbar from './components/Navbar';
+import Logo from './components/Logo';
+import { cards } from './assets/cardsData'; // Importa las tarjetas desde cardsData
 
 const App: FC = () => {
-  const cards: Card[] = [
-    {
-      id: 1,
-      image: 'https://via.placeholder.com/150',
-      title: 'Artwork 1',
-      description: 'This is the description of artwork 1.',
-    },
-    {
-      id: 2,
-      image: 'https://via.placeholder.com/150',
-      title: 'Artwork 2',
-      description: 'This is the description of artwork 2.',
-    },
-    {
-      id: 3,
-      image: 'https://via.placeholder.com/150',
-      title: 'Artwork 3',
-      description: 'This is the description of artwork 3.',
-    },
-  ];
-
   return (
     <Router>
-      <Navbar /> {/* Incluir la barra de navegación aquí */}
+      <header className="header">
+        <Logo />
+        <Navbar />
+      </header>
       <Routes>
         <Route path="/" element={<Home cards={cards} />} />
         <Route path="/details/:id" element={<Details cards={cards} />} />
