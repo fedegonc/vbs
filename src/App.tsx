@@ -1,66 +1,27 @@
-import { FC, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { FC } from 'react';
+import Home from './pages/Home';
+import Details from './pages/Details';
+import Contact from './pages/Contact';
+import Project from './pages/Project';
+import Services from './pages/Services';
+import Navbar from './components/Navbar';
 
-
-const Navbar: FC = () => {
-  const [drawerOpen, setDrawerOpen] = useState(false);
-
-  const toggleDrawer = (open: boolean) => () => {
-    setDrawerOpen(open);
-  };
-
+const App: FC = () => {
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <IconButton
-          edge="start"
-          color="inherit"
-          aria-label="menu"
-          sx={{ mr: 2, display: { xs: 'block', md: 'none' } }}
-          onClick={toggleDrawer(true)}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, gap: 2 }}>
-          <Button color="inherit" component={Link} to="/">
-            Home
-          </Button>
-          <Button color="inherit" component={Link} to="/project">
-            Proyecto
-          </Button>
-          <Button color="inherit" component={Link} to="/contact">
-            Contacto
-          </Button>
-          <Button color="inherit" component={Link} to="/services">
-            Servicios
-          </Button>
-        </Box>
-        <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
-          <Box
-            sx={{ width: 250 }}
-            role="presentation"
-            onClick={toggleDrawer(false)}
-            onKeyDown={toggleDrawer(false)}
-          >
-            <List>
-              <ListItem button component={Link} to="/">
-                <ListItemText primary="Home" />
-              </ListItem>
-              <ListItem button component={Link} to="/project">
-                <ListItemText primary="Proyecto" />
-              </ListItem>
-              <ListItem button component={Link} to="/contact">
-                <ListItemText primary="Contacto" />
-              </ListItem>
-              <ListItem button component={Link} to="/services">
-                <ListItemText primary="Servicios" />
-              </ListItem>
-            </List>
-          </Box>
-        </Drawer>
-      </Toolbar>
-    </AppBar>
+    <Router>
+      <header>
+        <Navbar />
+      </header>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/details/:id" element={<Details />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/project" element={<Project />} />
+        <Route path="/services" element={<Services />} />
+      </Routes>
+    </Router>
   );
 };
 
-export default Navbar;
+export default App;
