@@ -6,6 +6,7 @@ import Contact from './pages/Contact';
 import Project from './pages/Project';
 import Services from './pages/Services';
 import Navbar from './components/Navbar';
+import { cards } from './assets/cardsData';
 
 const App: FC = () => {
   return (
