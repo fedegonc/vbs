@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AppBar, Toolbar, Button, Box, IconButton, Drawer, List, ListItem, ListItemText, Typography } from '@mui/material';
+import { AppBar, Toolbar, Button, Box, Drawer, List, ListItem, ListItemText, Typography } from '@mui/material';
 
 const Navbar: FC = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
