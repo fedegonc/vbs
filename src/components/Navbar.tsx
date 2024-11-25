@@ -1,7 +1,6 @@
 import { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Button, Box, IconButton, Drawer, List, ListItem, ListItemText, Typography } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
 
 const Navbar: FC = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -14,15 +13,7 @@ const Navbar: FC = () => {
     <AppBar position="static" sx={{ backgroundColor: '#2c3e50' }}>
       <Toolbar>
         <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center' }}>
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2, display: { xs: 'block', md: 'none' } }}
-            onClick={toggleDrawer(true)}
-          >
-            <span style={{ fontSize: '24px' }}>☰</span>
-          </IconButton>
+          
           <Typography
             variant="h6"
             component={Link}
