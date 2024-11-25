@@ -14,8 +14,9 @@ const App: FC = () => {
         <Navbar />
       </header>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/details/:id" element={<Details />} />
+        
+        <Route path="/" element={<Home cards={cards} />} /> {/* Aquí se pasa `cards` como prop */}
+        <Route path="/details/:id" element={<Details cards={cards} />} /> {/* Aquí también */}
         <Route path="/contact" element={<Contact />} />
         <Route path="/project" element={<Project />} />
         <Route path="/services" element={<Services />} />
