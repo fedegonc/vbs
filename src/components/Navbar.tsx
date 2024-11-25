@@ -21,7 +21,7 @@ const Navbar: FC = () => {
             sx={{ mr: 2, display: { xs: 'block', md: 'none' } }}
             onClick={toggleDrawer(true)}
           >
-            <MenuIcon />
+            <span style={{ fontSize: '24px' }}>☰</span>
           </IconButton>
           <Typography
             variant="h6"
