@@ -1,42 +1,58 @@
 import { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
 import PageLayout from '../components/PageLayout';
+import { useNavigate } from 'react-router-dom';
 
-interface Card {
-  id: number;
-  image: string;
-  title: string;
-  description: string;
-}
-
-interface HomeProps {
-  cards: Card[];
-}
-
-const Home: FC<HomeProps> = ({ cards }) => {
+const Home: FC = () => {
   const navigate = useNavigate();
 
   return (
     <PageLayout>
-      <h1>Tallados</h1>
-    
-      <div className="card-container d-flex flex-wrap justify-content-center">
-        {cards.map((card: Card) => (
-          <div className="card m-3" key={card.id} style={{ width: '18rem' }}>
-            <img src={card.image} alt={card.title} className="card-img-top" />
+      <section className="text-center my-5">
+        <h1>Bienvenido a Tallados Únicos</h1>
+        <p>
+          Descubre tallados personalizados y únicos hechos con pasión y
+          dedicación. Explora nuestras colecciones y contacta con nosotros para
+          más información.
+        </p>
+        <button
+          className="btn btn-primary mt-3"
+          onClick={() => navigate('/gallery')}
+        >
+          Ver Galería
+        </button>
+      </section>
+
+      <section className="features my-5">
+        <h2 className="text-center">¿Qué Ofrecemos?</h2>
+        <div className="d-flex flex-wrap justify-content-center">
+          <div className="card m-3" style={{ width: '18rem' }}>
             <div className="card-body">
-              <h5 className="card-title">{card.title}</h5>
-              <p className="card-text">{card.description}</p>
-              <button
-                className="btn btn-primary"
-                onClick={() => navigate(`/details/${card.id}`)}
-              >
-                Ver Más Detalles
-              </button>
+              <h5 className="card-title">Tallados Personalizados</h5>
+              <p className="card-text">
+                Diseños únicos hechos a medida según tus necesidades.
+              </p>
             </div>
           </div>
-        ))}
-      </div>
+          <div className="card m-3" style={{ width: '18rem' }}>
+            <div className="card-body">
+              <h5 className="card-title">Madera de Alta Calidad</h5>
+              <p className="card-text">
+                Utilizamos materiales seleccionados para garantizar
+                durabilidad.
+              </p>
+            </div>
+          </div>
+          <div className="card m-3" style={{ width: '18rem' }}>
+            <div className="card-body">
+              <h5 className="card-title">Atención al Cliente</h5>
+              <p className="card-text">
+                Estamos aquí para ayudarte y asegurarnos de que tu experiencia
+                sea la mejor.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </PageLayout>
   );
 };
