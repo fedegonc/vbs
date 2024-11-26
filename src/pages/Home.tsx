@@ -18,15 +18,8 @@ const Home: FC<HomeProps> = ({ cards }) => {
 
   return (
     <PageLayout>
-      <h1>Galería de Arte</h1>
-      <div className="button-container mb-4">
-        <button onClick={() => navigate('/contact')} className="navigation-button">
-          Contáctanos
-        </button>
-        <button onClick={() => navigate('/project')} className="navigation-button">
-          Proyecto
-        </button>
-      </div>
+      <h1>Tallados</h1>
+    
       <div className="card-container d-flex flex-wrap justify-content-center">
         {cards.map((card: Card) => (
           <div className="card m-3" key={card.id} style={{ width: '18rem' }}>
