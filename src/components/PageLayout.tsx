@@ -8,9 +8,6 @@ interface PageLayoutProps {
 const PageLayout: FC<PageLayoutProps> = ({ children }) => {
   return (
     <div className="d-flex flex-column min-vh-100">
-      <header>
-        <Navbar />
-      </header>
       <main className="flex-grow-1 container py-4">
         {children}
       </main>
