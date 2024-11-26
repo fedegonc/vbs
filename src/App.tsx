@@ -17,8 +17,8 @@ const App: FC = () => {
       </header>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/" element={<Gallery cards={cards} />} /> {/* Aquí se pasa `cards` como prop */}
-        <Route path="/details/:id" element={<Details cards={cards} />} /> {/* Aquí también */}
+        <Route path="/gallery" element={<Gallery cards={cards} />} />
+        <Route path="/details/:id" element={<Details cards={cards} />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/project" element={<Project />} />
         <Route path="/services" element={<Services />} />
