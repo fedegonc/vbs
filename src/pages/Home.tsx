@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
-import PageLayout from './PageLayout';
+import PageLayout from '.components/PageLayout';
 
 interface Card {
   id: number;
