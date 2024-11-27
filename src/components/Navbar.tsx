@@ -5,8 +5,9 @@ const Navbar: FC = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <div className="container">
+        {/* Enlace que lleva a la raíz */}
         <Link to="/" className="navbar-brand">
-          MiAplicación
+          T
         </Link>
         <button
           className="navbar-toggler"
