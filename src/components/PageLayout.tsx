@@ -1,5 +1,6 @@
 import { FC, ReactNode } from 'react';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 interface PageLayoutProps {
   children: ReactNode;
