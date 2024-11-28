@@ -1,50 +1,61 @@
-import { FC } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
 
-const Navbar: FC = () => {
+const Navbar: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen(!isOpen); // Toggle state
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div className="container">
-        {/* Enlace que lleva a la raíz */}
-        <Link to="/" className="navbar-brand">
-          TU SPA
-        </Link>
+    <nav className="bg-blue-500 text-white p-4 relative">
+      <div className="flex justify-between items-center">
+        <div className="text-lg font-bold">T</div>
         <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
+          onClick={toggleMenu}
+          className="p-2 rounded focus:outline-none"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          {/* Hamburger icon */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
-              <Link to="/" className="nav-link">
-                La Clave
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/project" className="nav-link">
-                Proyecto
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/services" className="nav-link">
-                Servicios
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/contact" className="nav-link">
-                Contactenos
-              </Link>
-            </li>
-            
-          </ul>
-        </div>
+      </div>
+
+      {/* Toggleable Menu */}
+      <div className={`${isOpen ? "block" : "hidden"} bg-blue-700 p-4`}>
+        <ul className="space-y-2">
+          <li>
+            <a href="#home" className="hover:underline">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#project" className="hover:underline">
+              Project
+            </a>
+          </li>
+          <li>
+            <a href="#contact" className="hover:underline">
+              Contact
+            </a>
+          </li>
+          <li>
+            <a href="#services" className="hover:underline">
+              Services
+            </a>
+          </li>
+        </ul>
       </div>
     </nav>
   );
