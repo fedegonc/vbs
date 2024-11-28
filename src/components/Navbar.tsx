@@ -7,7 +7,7 @@ const Navbar: FC = () => {
       <div className="container">
         {/* Enlace que lleva a la raíz */}
         <Link to="/" className="navbar-brand">
-          T
+          TU SPA
         </Link>
         <button
           className="navbar-toggler"
@@ -24,7 +24,7 @@ const Navbar: FC = () => {
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
               <Link to="/" className="nav-link">
-                Home
+                La Clave
               </Link>
             </li>
             <li className="nav-item">
@@ -33,15 +33,16 @@ const Navbar: FC = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/contact" className="nav-link">
-                Contacto
-              </Link>
-            </li>
-            <li className="nav-item">
               <Link to="/services" className="nav-link">
                 Servicios
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to="/contact" className="nav-link">
+                Contactenos
+              </Link>
+            </li>
+            
           </ul>
         </div>
       </div>
